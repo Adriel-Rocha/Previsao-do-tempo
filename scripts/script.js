@@ -23,10 +23,12 @@ async function searchCity(city) {
 
 function showResult(dates) {
     document.querySelector('.city').innerHTML = 'Clima em ' + dates.name
+    document.querySelector('.iconFlag').src = `https://www.countryflagicons.com/FLAT/64/${dates.sys.country}.png`
     document.querySelector('.temp').innerHTML = Math.floor(dates.main.temp) + '°C'
     document.querySelector('.imgPreview').src = `https://openweathermap.org/img/wn/${dates.weather[0].icon}.png`
     document.querySelector('.textPreview').innerHTML = dates.weather[0].description
-    document.querySelector('.humidity').innerHTML = 'Umidade: ' + dates.main.humidity + '%'
+    document.querySelector('.humidity').innerHTML = dates.main.humidity + '%'
+    document.querySelector('.air').innerHTML = dates.wind.speed + 'm/s'
     document.querySelector('.inputCity').value = ''
 }
 
