@@ -23,7 +23,7 @@ async function searchCity(city) {
 
 function showResult(dates) {
     document.querySelector('.city').innerHTML = 'Clima em ' + dates.name
-    document.querySelector('.iconFlag').src = `https://www.countryflagicons.com/FLAT/64/${dates.sys.country}.png`
+    document.querySelector('.iconFlag').src = `https://flagsapi.com/${dates.sys.country}/shiny/64.png`
     document.querySelector('.temp').innerHTML = Math.floor(dates.main.temp) + '°C'
     document.querySelector('.imgPreview').src = `https://openweathermap.org/img/wn/${dates.weather[0].icon}.png`
     document.querySelector('.textPreview').innerHTML = dates.weather[0].description
@@ -56,18 +56,3 @@ async function searchImageCity(city) {
 function changTheBackgraund(imgBackground) {
     document.body.style.backgroundImage = `url(${imgBackground})`
 }
-
-
-
-
-
-// async function getImage(cityName) {
-//     const datesOnSearch = await fetch(`https://www.googleapis.com/customsearch/v1?key=${googleApiKey}&cx=${searchEngineId}&searchType=image&imgSize=xlarge&num=1&q=imagem da cidade de ${cityName}`).then(response => response.json())
-//     const linkImg = datesOnSearch.items[0].link
-//     backGroundImg(linkImg)
-// }
-
-// function backGroundImg(imgLink) {
-//     document.body.style.backgroundImage = `url(${imgLink})`
-//     console.log(document.body.style.backgroundImage)
-// }
