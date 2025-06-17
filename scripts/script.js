@@ -14,7 +14,7 @@ function clickSearch() {
 
 async function searchCity(city) {
 
-    const res = await fetch(`https://weather-backend-utcz.onrender.com/forecast?city=${city}&?lang=pt-br`);
+    const res = await fetch(`https://weather-backend-utcz.onrender.com/forecast?city=${city}&lang=pt_br`);
     const dates = await res.json();
     showResult(dates);
 }
@@ -23,7 +23,7 @@ function showResult(dates) {
 
     const city = dates.weather.name;
     const iconFlag = `https://flagsapi.com/${dates.weather.sys.country}/shiny/64.png`;
-    const temp = dates.weather.main.temp;
+    const temp = Math.trunc(dates.weather.main.temp);
     const imgPreview = `https://openweathermap.org/img/wn/${dates.weather.weather[0].icon}.png`;
     const description = dates.weather.weather[0].description;
     const humidity = dates.weather.main.humidity;
